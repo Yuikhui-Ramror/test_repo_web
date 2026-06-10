@@ -17,11 +17,11 @@ navLinks.forEach(link => {
 // Header background change on scroll
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
-    if(window.scrollY > 50){
+    if (window.scrollY > 50) {
         // Using CSS variables dynamically could be done here, 
-        // but sticking to standard styles based on your roots
         header.style.background = "var(--overlay-dark)";
-    }else{
+    }
+    else {
         header.style.background = "var(--overlay-light)";
     }
 });
@@ -34,7 +34,7 @@ const observerOptions = {
     rootMargin: "0px 0px -50px 0px"
 };
 
-const revealObserver = new IntersectionObserver(function(entries, observer) {
+const revealObserver = new IntersectionObserver(function (entries, observer) {
     entries.forEach(entry => {
         if (!entry.isIntersecting) {
             return;
@@ -66,7 +66,7 @@ closeModal.addEventListener("click", () => {
 });
 
 modal.addEventListener("click", (e) => {
-    if(e.target === modal){
+    if (e.target === modal) {
         modal.style.display = "none";
     }
 });
