@@ -30,7 +30,7 @@ window.addEventListener("scroll", () => {
 const reveals = document.querySelectorAll(".reveal");
 
 const observerOptions = {
-    threshold: 0.15, // Trigger when 15% of the element is visible
+    threshold: 0.15, 
     rootMargin: "0px 0px -50px 0px"
 };
 
@@ -40,7 +40,6 @@ const revealObserver = new IntersectionObserver(function (entries, observer) {
             return;
         } else {
             entry.target.classList.add("active");
-            // Optional: observer.unobserve(entry.target); if you only want it to animate once
         }
     });
 }, observerOptions);

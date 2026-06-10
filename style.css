@@ -1,14 +1,12 @@
 :root {
-    --primary-color: #25D366; /* Kept for the WhatsApp floating icon */
+    --primary-color: #25D366;
     --primary-hover: #ff4d4d;
     --bg-color: #f7f8fc;
     --text-color: #222;
-    --price-color: #16a34a;
+    --price-color: #0056b3;
     --dark-bg: #111827;
     --overlay-dark: rgba(0,0,0,.85);
     --overlay-light: rgba(0,0,0,.45);
-    
-    /* New Blue Theme Variables for Buttons */
     --btn-blue: #0056b3;
     --btn-blue-hover: #004494;
     --btn-blue-bg: #f0f8ff;
@@ -104,7 +102,7 @@ nav a:hover{
     margin-bottom:25px;
 }
 
-/* UPDATED BUTTON STYLES */
+
 .btn{
     display:inline-block;
     background: var(--btn-blue-bg);
