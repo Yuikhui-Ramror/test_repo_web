@@ -357,3 +357,12 @@ footer{
 .gallery-img{
     cursor:pointer;
 }
+
+/* Fix for iOS Safari, Brave, and Mobile Browser Animation Freezes */
+@media (max-width: 768px) {
+    .reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
+}
