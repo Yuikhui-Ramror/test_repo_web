@@ -1,0 +1,224 @@
+/* ============================================================
+   Trust Rides — landing page (index.html)
+   Service selection between Guwahati rentals and Tours & Travels.
+   ============================================================ */
+
+.landing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-h) - 76px);
+    padding: 56px 0 68px;
+}
+
+/* Entrance animation runs on CSS alone, so the page is never
+   hidden if JavaScript fails to load. */
+@keyframes rise-in{
+    from{
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.landing__head{
+    animation: rise-in .55s ease backwards;
+}
+
+.service-card:nth-child(1){
+    animation: rise-in .55s ease .1s backwards;
+}
+
+.service-card:nth-child(2){
+    animation: rise-in .55s ease .2s backwards;
+}
+
+.landing__head{
+    max-width: 720px;
+    margin: 0 auto 44px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.landing__head h1{
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 14px;
+}
+
+.landing__subtitle{
+    color: var(--muted);
+    font-size: clamp(.98rem, 1.4vw, 1.08rem);
+}
+
+/* ---------- Service cards ---------- */
+.service-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.service-card{
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.service-card:hover{
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-card:focus-visible{
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+.card-media{
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: #e6edf9;
+}
+
+.card-media img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.service-card:hover .card-media img{
+    transform: scale(1.05);
+}
+
+/* The Guwahati photo is portrait, so the crop is biased
+   towards the car rather than the sky. */
+.card-media--venue img{
+    object-position: center 88%;
+}
+
+/* Supplied outstation photo: same treatment. */
+.card-media--outstation img{
+    object-position: center 65%;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    padding: 28px 30px 32px;
+}
+
+.card-body h2{
+    font-size: 1.45rem;
+    line-height: 1.3;
+    letter-spacing: -.01em;
+}
+
+.card-desc{
+    color: var(--muted);
+    font-size: .98rem;
+    line-height: 1.7;
+}
+
+.card-tagline{
+    color: var(--blue);
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+.card-cta{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 20px;
+    color: var(--blue);
+    font-weight: 600;
+    font-size: .98rem;
+}
+
+.card-arrow{
+    transition: transform .25s ease;
+}
+
+.service-card:hover .card-arrow,
+.service-card:focus-visible .card-arrow{
+    transform: translateX(6px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px){
+    .landing{
+        justify-content: flex-start;
+        min-height: 0;
+        padding: 46px 0 60px;
+    }
+
+    .landing__head{
+        margin-bottom: 32px;
+    }
+
+    .service-grid{
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 560px;
+    }
+
+    .card-media{
+        height: 220px;
+    }
+
+    .card-body{
+        padding: 22px 22px 26px;
+    }
+
+    .section-title{
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px){
+    .card-media{
+        height: 190px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .landing__head,
+    .service-card:nth-child(1),
+    .service-card:nth-child(2){
+        animation: none;
+    }
+
+    .service-card,
+    .service-card:hover{
+        transform: none;
+    }
+
+    .service-card:hover .card-media img{
+        transform: none;
+    }
+
+    .service-card:hover .card-arrow{
+        transform: none;
+    }
+}
